@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+var getcallapi=function(){
+	var http=new XMLHttpRequest();
+	http.onreadystatechange=function()
+	{
+	
+	
+		if(this.readyState==4 && this.status==200){
+		console.log(this.status);
+		var data=	this.responseText;
+		var kk = JSON.parse(data);
+		readapi(kk);
+		}
+	};
+	http.open("GET","http://192.168.0.2:8080/all",true);
+	http.send();
+}
+
+
+var readapi= function(data){
+
+for(let i=0;i<data.length;i++){
+console.log(data[i].customerName);
+}
+}
+</script>
+</head>
+
+<body>
+
+<button onclick="getcallapi()" >Submit</button>
+</body>
+</html>

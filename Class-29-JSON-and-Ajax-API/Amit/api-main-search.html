@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<script>
+var globaldata;
+function btngo(){
+	
+var dharam = new XMLHttpRequest();
+
+dharam.onreadystatechange=function(){
+	if(this.readyState==4 && this.status==200){
+		var amit =this.responseText;
+		var kk=JSON.parse(amit);
+		readapi();
+		}
+		
+		
+		function readapi(){
+			globaldata =kk;
+			var tableId ="<table border='1'><tr><th>Employee Name</th><th>Employee Salary</th><th>employee Age</th></tr>";
+			for(let i=0; i<kk.length;i++){
+			  tableId +="<tr><td>"+kk[i].employee_name+"</td><td>"+kk[i].employee_salary+"</td><td>"+kk[i].employee_age+"</td></tr>";	
+			}
+			tableId +="</table>";
+			document.getElementById("demo").innerHTML=tableId;
+		}
+		
+	}
+
+dharam.open("GET","http://dummy.restapiexample.com/api/v1/employees", true);
+dharam.send();
+	
+	}
+	
+	
+	
+	//Search functionality start here
+	function search(x){
+		var xyz = globaldata.filter((val)=>{
+			return val.employee_name.toLowerCase().includes(x);
+		});
+		var tableId ="<table border='1'><tr><th>Employee Name</th><th>Employee Salary</th><th>employee Age</th></tr>";
+			for(let i=0; i<xyz.length;i++){
+			  tableId +="<tr><td>"+xyz[i].employee_name+"</td><td>"+xyz[i].employee_salary+"</td><td>"+xyz[i].employee_age+"</td></tr>";	
+			}
+			tableId +="</table>";
+			document.getElementById("demo").innerHTML=tableId;
+	}
+	
+		
+</script>
+</head>
+
+<body>
+
+<input type="button" onClick="btngo()" value="submit">
+<input type="search" onKeyUp="search(this.value)" />
+<div id="demo"></div>
+</body>
+</html>

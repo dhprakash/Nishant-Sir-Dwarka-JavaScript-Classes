@@ -1,0 +1,40 @@
+<html>
+<head>
+<title>java script</title>
+
+<script>
+//var addd=()=>{
+	
+function addd(){
+	
+var abc=document.getElementById('main');
+
+var d=document.createElement('div');
+
+d.innerHTML="<input type='text' placeholder='Enter Name'> 
+			 <input type='number' placeholder='Enter Age'> 
+			 <span style='cursor:pointer;'>&times;</span>";
+
+abc.appendChild(d);
+
+}
+</script>
+
+</head>
+
+<body>
+<div id="main">
+
+<div>
+
+<input type="text" placeholder="Enter Name"> <input type="number" placeholder="Enter Age"> 
+<button onclick="addd()">add +</button>
+
+</div>
+
+</div>
+
+</body>
+
+
+</html>

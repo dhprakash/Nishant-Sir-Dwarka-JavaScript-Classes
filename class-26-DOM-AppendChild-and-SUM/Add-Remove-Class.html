@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+.as{color:#fff;font-family:arial;background-color:green;padding:10px;transition:all 3s;}
+</style>
+</head>
+
+<body>
+
+
+<p id="d">hello</p>
+
+<button onclick="addStyle()">Add Style</button>
+<button onclick="removeStyle()">Remove Style</button>
+
+
+<script>
+function addStyle(){
+var asd=document.getElementById('d');
+asd.innerHTML="hi dhram";
+asd.classList.add('as');
+}
+
+function removeStyle(){
+var asd=document.getElementById('d');
+asd.innerHTML="hi dhram";
+asd.classList.remove('as');
+}
+</script>
+</body>
+</html>

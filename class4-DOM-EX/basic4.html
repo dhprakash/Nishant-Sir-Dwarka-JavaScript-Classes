@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+<head>
+<script>
+function reverseStr(){
+var str="Welcome World";
+var len=str.length;
+var st="";
+for(let i=len-1;i>=0;i--){
+st+=str[i];
+}
+document.getElementById('demo').innerHTML=st;
+}
+
+
+//var str="java,android,php,java script,bootstrap,css,sass,lass,python";
+
+</script>
+</head>
+<body>
+<p id="demo"></p>
+<button onclick="reverseStr()">Reverse Text</button>
+</body>
+</html>
